@@ -7,7 +7,7 @@ const MAX_GUESSES = 6;
 
 
 let newGame = function(){
-
+guessCount = MAX_GUESSES;
 let randomIndex =parseInt(Math.random() * PossibleWords.length);
  word= PossibleWords[randomIndex];
  guesses = "";
@@ -50,5 +50,6 @@ if(word.indexOf(letter) < 0){
 }
 
 guesses+=letter;
+input.value = "";
 updatePage();
 }
