@@ -1,48 +1,37 @@
-const POSSIBLE_WORDS = ["pixel", "zigzag", "chocolate", "electricity", "today", "awkward", "apple",
-    "defensive", "president"]
-var word = "";
-var guesses = "";
+const PossibleWords = ["obdurate", "versimilitude", "dissonant", "obsequious", "capitulate", "deleterious", "enervate", "gregarious"];
 
+let newGame = function(){
 
-let newGame = function() {
-    //Picks a random word
-    let randomInex = parseInt(Math.random()*POSSIBLE_WORDS.length);
-    let word = POSSIBLE_WORDS[randomInex];
-    guesses = "";
-    updatePage();
-
-    //Show Blank Dashes
-    updatePage();
-
-
+let randomIndex =parseInt(Math.random() * PossibleWords.length);
+ word= PossibleWords[randomIndex];
+ guesses = "";
+ updatePage();
 }
 
-let updatePage = function() {
-        for (i =0; i < word.length;i++) {
 
-        var currentLetter = word.charAt(i);
-        if(guesses.indexOf(currentLetter) >=0) {
-            clueString+=currentLetter+" ";
-        }
-        else {
-        let clueString = "_";
-        }
+let updatePage = function(){
+let clueString = "";
+for (let i = 0; i < word.length; i++) {
+    var currentLetter = word.charAt(i);
+    if(guesses.indexOf(currentLetter) >= 0){
+clueString += currentLetter + " ";
     }
-    let clue = document.getElementById("clue");
-    clue.textContent = clueString; 
 
-
-    let guessArea = document.getElementById("guesses");
-    guessArea.textContent = "Guesses : "+guesses;
+else{
+    clueString += "_ ";
 }
 
-let guessLetter = function() {
+}
+let clue = document.getElementById("clue");
+clue.textContent = clueString;
 
-    let input = document.getElementById("guess");
+let guessArea= document.getElementById("guesses");
+guessArea.textContent = "Guesses: " + guesses;
+}
 
-    let letter = input.value;
-    guess+=letter;
-
-    updatePage();
-
+let guessLetter = function(){
+let input = document.getElementById("guess");
+let letter = input.value;
+guesses+=letter;
+updatePage();
 }
