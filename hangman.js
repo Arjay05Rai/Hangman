@@ -64,4 +64,18 @@ if(word.indexOf(letter) < 0){
 guesses+=letter;
 input.value = "";
 updatePage();
+
+
+let won =true;
+for (let i = 0; i < word.length; i++) {
+    if(guesses.indexOf(word[i]) < 0){
+        won = false;
+        break;
+    }
+}
+if (won){
+    guessArea.textContent=" YAY! You won! The word was " + word;
+}
+else if (guessCount === 0){
+    guessArea.textContent="Sorry you lost :( The word was " + word;
 }
