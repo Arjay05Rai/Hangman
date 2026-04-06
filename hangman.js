@@ -49,6 +49,10 @@ if (word === "") {
     input.value =  "";
     return;
 }
+if (guessCount === 0) {
+    input.value =  "";
+    return;
+}
 if(guesses.indexOf(letter)>= 0) {
     input.value = "";
     return;
