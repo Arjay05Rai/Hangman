@@ -39,6 +39,13 @@ image.src = `images/hangman${guessCount}.gif`
 
 }
 
+if (won){
+    guessArea.textContent="You won! The word was " + word;
+}
+else if (guessCount === 0){
+    guessArea.textContent="You lost :( The word was " + word;
+}
+
 
 
 let guessLetter = function(){
@@ -66,16 +73,5 @@ input.value = "";
 updatePage();
 
 
-let won =true;
-for (let i = 0; i < word.length; i++) {
-    if(guesses.indexOf(word[i]) < 0){
-        won = false;
-        break;
-    }
-}
-if (won){
-    guessArea.textContent=" YAY! You won! The word was " + word;
-}
-else if (guessCount === 0){
-    guessArea.textContent="Sorry you lost :( The word was " + word;
+
 }
